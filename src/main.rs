@@ -12,10 +12,7 @@ fn main() {
         .output()
         .unwrap();
 
-    if output.status.success() {
-        std::process::exit(0);
-    } else {
-        std::process::exit(1);
-    }
+    let exit_code = output.status.code().unwrap();
+    std::process::exit(exit_code);
 }
 
